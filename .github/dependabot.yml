@@ -4,3 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
+    ignore:
+      # The Jahia parent / platform artifacts define the target Jahia version
+      - dependency-name: "org.jahia.*"
+      # OSGi spec artifacts change Require-Capability/Import-Package ranges
+      - dependency-name: "org.osgi:*"
